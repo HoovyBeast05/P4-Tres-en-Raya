@@ -63,11 +63,15 @@ public class XandO {
 					{
 					case 1:
 						System.out.println("You got heads! " + username[chosenToFlip - 1] + " shall start.");
+						firstPlayer = username[chosenToFlip - 1];
+						secondPlayer = username[chosenToFlip % 2];
 						flipping = false;
 						break;
 					
 					case 2:
 						System.out.println("Oof! You got tails, the opposing player shall start.");
+						secondPlayer = username[chosenToFlip - 1];
+						firstPlayer = username[chosenToFlip % 2];
 						flipping = false;
 						break;
 					}
@@ -78,11 +82,15 @@ public class XandO {
 					{
 					case 1:
 						System.out.println("Oof! You got heads, the opposing player shall start.");
+						secondPlayer = username[chosenToFlip - 1];
+						firstPlayer = username[chosenToFlip % 2];
 						flipping = false;
 						break;
 					
 					case 2:
 						System.out.println("You got tails! " + username[chosenToFlip - 1] + " shall start.");
+						firstPlayer = username[chosenToFlip - 1];
+						secondPlayer = username[chosenToFlip % 2];
 						flipping = false;
 						break;
 					}
@@ -138,6 +146,7 @@ public class XandO {
 						}
 						else 
 						{
+							System.err.println("VALUE OVERLOAD");
 							System.out.print("Choose a value from 0 to 2 for the file:");
 							file = s.nextInt();
 							s.nextLine();
@@ -164,6 +173,7 @@ public class XandO {
 						}
 						else 
 						{
+							System.err.println("VALUE OVERLOAD");
 							System.out.print("Choose a value from 0 to 2 for the file:");
 							column = s.nextInt();
 							s.nextLine();
@@ -216,6 +226,7 @@ public class XandO {
 						}
 						else 
 						{
+							System.err.println("VALUE OVERLOAD");
 							System.out.print("Choose a value from 0 to 2 for the file:");
 							file = s.nextInt();
 							s.nextLine();
@@ -242,6 +253,7 @@ public class XandO {
 						}
 						else 
 						{
+							System.err.println("VALUE OVERLOAD");
 							System.out.print("Choose a value from 0 to 2 for the file:");
 							column = s.nextInt();
 							s.nextLine();
