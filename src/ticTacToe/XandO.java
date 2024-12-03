@@ -264,6 +264,27 @@ public class XandO {
 					break;
 				}
 			}
+			
+			for(int i = 0; i < table.length; i++) 
+			{
+				if(table[i][0] == 'X' && table[i][1] == 'X' && table[i][2] == 'X') 
+				{
+					
+				}
+				else if(table[0][i] == 'X' && table[1][i] == 'X' && table[2][i] == 'X') 
+				{
+					
+				}
+				else if(table[i][0] == 'O' && table[i][1] == 'O' && table[i][2] == 'O') 
+				{
+					
+				}
+				else if(table[0][i] == 'O' && table[1][i] == 'O' && table[2][i] == 'O') 
+				{
+					
+				}
+			}
+			
 		}
 	}
 }
