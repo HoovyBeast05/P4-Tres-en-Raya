@@ -127,7 +127,8 @@ public class XandO {
 				}
 				System.out.println();
 			}
-			
+
+			System.out.println();
 			System.out.println(firstPlayer + "'s turn");
 			
 			while(selecting) 
@@ -140,7 +141,7 @@ public class XandO {
 						file = s.nextInt();
 						s.nextLine();
 						
-						if(file <= 2) 
+						if(file <= 2 && file >= 0) 
 						{
 							break;
 						}
@@ -167,7 +168,7 @@ public class XandO {
 						column = s.nextInt();
 						s.nextLine();
 						
-						if(column <= 2) 
+						if(column <= 2 && column >= 0) 
 						{
 							break;
 						}
@@ -210,6 +211,35 @@ public class XandO {
 			
 			System.out.println();
 			
+			for(int i = 0; i < table.length; i++) 
+			{
+				if(table[i][0] == 'X' && table[i][1] == 'X' && table[i][2] == 'X') 
+				{
+					theGame = false;
+					break;
+				}
+				else if(table[0][i] == 'X' && table[1][i] == 'X' && table[2][i] == 'X') 
+				{
+					theGame = false;
+					break;
+				}
+				else if(table[i][0] == 'O' && table[i][1] == 'O' && table[i][2] == 'O') 
+				{
+					theGame = false;
+					break;
+				}
+				else if(table[0][i] == 'O' && table[1][i] == 'O' && table[2][i] == 'O') 
+				{
+					theGame = false;
+					break;
+				}
+			}
+			
+			if(!theGame) 
+			{
+				break;
+			}
+			
 			System.out.println(secondPlayer + "'s turn");
 			
 			while(selecting) 
@@ -222,7 +252,7 @@ public class XandO {
 						file = s.nextInt();
 						s.nextLine();
 						
-						if(file <= 2) 
+						if(file <= 2 && file >= 0) 
 						{
 							break;
 						}
@@ -249,7 +279,7 @@ public class XandO {
 						column = s.nextInt();
 						s.nextLine();
 						
-						if(column <= 2) 
+						if(column <= 2 && column >= 0) 
 						{
 							break;
 						}
@@ -283,20 +313,29 @@ public class XandO {
 			{
 				if(table[i][0] == 'X' && table[i][1] == 'X' && table[i][2] == 'X') 
 				{
-					
+					theGame = false;
+					break;
 				}
 				else if(table[0][i] == 'X' && table[1][i] == 'X' && table[2][i] == 'X') 
 				{
-					
+					theGame = false;
+					break;
 				}
 				else if(table[i][0] == 'O' && table[i][1] == 'O' && table[i][2] == 'O') 
 				{
-					
+					theGame = false;
+					break;
 				}
 				else if(table[0][i] == 'O' && table[1][i] == 'O' && table[2][i] == 'O') 
 				{
-					
+					theGame = false;
+					break;
 				}
+			}
+			
+			if(!theGame) 
+			{
+				break;
 			}
 			
 		}
