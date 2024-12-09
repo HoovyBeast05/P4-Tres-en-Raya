@@ -119,6 +119,7 @@ public class XandO {
 			int file = 0, column = 0, theWinner = 0;
 			boolean selecting = true;
 			boolean tryCatching = true;
+			boolean draw = true;
 			
 			while(theGame) 
 			{
@@ -252,24 +253,27 @@ public class XandO {
 					break;
 				}
 				
+				draw = true;
 				for(int i = 0; i < table.length; i++) 
 				{
 					for(int j = 0; j < table[i].length; j++) 
 					{
 						if (table[i][j] == '·') 
 						{
-			                continue;
+							draw = false;
 			            }
-						else 
-						{
-							theGame = false;
-						}
+					}
+					if (!draw) 
+					{
+						break;
 					}
 				}
-				if(!theGame) 
-				{
-					break;
-				}
+                if (draw) 
+                {
+                    System.out.println("It's a draw!");
+                    theGame = false;
+                    break;
+                }
 				
 				System.out.println(secondPlayer + "'s turn");
 				
@@ -376,24 +380,27 @@ public class XandO {
 					break;
 				}
 				
+				draw = true;
 				for(int i = 0; i < table.length; i++) 
 				{
 					for(int j = 0; j < table[i].length; j++) 
 					{
 						if (table[i][j] == '·') 
 						{
-			                continue;
+							draw = false;
 			            }
-						else 
-						{
-							theGame = false;
-						}
+					}
+					if (!draw) 
+					{
+						break;
 					}
 				}
-				if(!theGame) 
-				{
-					break;
-				}
+                if (draw) 
+                {
+                    System.out.println("It's a draw!");
+                    theGame = false;
+                    break;
+                }
 			}
 			
 			System.out.println();
