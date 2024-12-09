@@ -102,242 +102,302 @@ public class XandO {
 			}
 		}
 		
-		boolean theGame = true;
-	
-		char[][] table = 
-			{
-					{'·', '·', '·'},
-					{'·', '·', '·'},
-					{'·', '·', '·'}
-			};
+		boolean continu = true;
+		int choosing = 0, player1win = 0, player2win = 0;
 		
-		int file = 0, column = 0;
-		boolean selecting = true;
-		boolean tryCatching = true;
-		
-		while(theGame) 
+		while(continu) 
 		{
-			System.out.println();
-			
-			for(int i = 0; i < table.length; i++) //Double for (And what the teacher wanted)
-			{
-				for(int j = 0; j < table[i].length; j++) 
+			boolean theGame = true;
+		
+			char[][] table = 
 				{
-					System.out.print(table[i][j] + " ");
-				}
+						{'·', '·', '·'},
+						{'·', '·', '·'},
+						{'·', '·', '·'}
+				};
+			
+			int file = 0, column = 0, theWinner = 0;
+			boolean selecting = true;
+			boolean tryCatching = true;
+			
+			while(theGame) 
+			{
 				System.out.println();
-			}
-
-			System.out.println();
-			System.out.println(firstPlayer + "'s turn");
-			
-			while(selecting) 
-			{
-				while(tryCatching) 
+				
+				for(int i = 0; i < table.length; i++) //Double for (And what the teacher wanted)
 				{
-					try 
+					for(int j = 0; j < table[i].length; j++) 
 					{
-						System.out.print("Choose a value from 0 to 2 for the file:");
-						file = s.nextInt();
-						s.nextLine();
-						
-						if(file <= 2 && file >= 0) 
+						System.out.print(table[i][j] + " ");
+					}
+					System.out.println();
+				}
+	
+				System.out.println();
+				System.out.println(firstPlayer + "'s turn");
+				
+				while(selecting) 
+				{
+					while(tryCatching) 
+					{
+						try 
 						{
-							break;
-						}
-						else 
-						{
-							System.err.println("VALUE OVERLOAD");
 							System.out.print("Choose a value from 0 to 2 for the file:");
 							file = s.nextInt();
 							s.nextLine();
+							
+							if(file <= 2 && file >= 0) 
+							{
+								break;
+							}
+							else 
+							{
+								System.err.println("VALUE OVERLOAD");
+								System.out.print("Choose a value from 0 to 2 for the file:");
+								file = s.nextInt();
+								s.nextLine();
+							}
 						}
-					}
-					catch(InputMismatchException e) 
-					{
-						System.err.println(e.toString());
-						s.nextLine();
-					}
-				}
-				
-				while(tryCatching) 
-				{
-					try 
-					{
-						System.out.print("Choose a value from 0 to 2 for the column:");
-						column = s.nextInt();
-						s.nextLine();
-						
-						if(column <= 2 && column >= 0) 
+						catch(InputMismatchException e) 
 						{
-							break;
-						}
-						else 
-						{
-							System.err.println("VALUE OVERLOAD");
-							System.out.print("Choose a value from 0 to 2 for the file:");
-							column = s.nextInt();
+							System.err.println(e.toString());
 							s.nextLine();
 						}
 					}
-					catch(InputMismatchException e) 
+					
+					while(tryCatching) 
 					{
-						System.err.println(e.toString());
-						s.nextLine();
+						try 
+						{
+							System.out.print("Choose a value from 0 to 2 for the column:");
+							column = s.nextInt();
+							s.nextLine();
+							
+							if(column <= 2 && column >= 0) 
+							{
+								break;
+							}
+							else 
+							{
+								System.err.println("VALUE OVERLOAD");
+								System.out.print("Choose a value from 0 to 2 for the file:");
+								column = s.nextInt();
+								s.nextLine();
+							}
+						}
+						catch(InputMismatchException e) 
+						{
+							System.err.println(e.toString());
+							s.nextLine();
+						}
+					}
+					
+					if(table[file][column] == 'X' || table[file][column] == 'O') 
+					{
+						System.out.println("Sorry, please retry");
+					}
+					else 
+					{
+						table[file][column] = 'X';
+						break;
 					}
 				}
 				
-				if(table[file][column] == 'X' || table[file][column] == 'O') 
-				{
-					System.out.println("Sorry, please retry");
-				}
-				else 
-				{
-					table[file][column] = 'X';
-					break;
-				}
-			}
-			
-			System.out.println();
-			
-			for(int i = 0; i < table.length; i++) //Double for (And what the teacher wanted)
-			{
-				for(int j = 0; j < table[i].length; j++) 
-				{
-					System.out.print(table[i][j] + " ");
-				}
 				System.out.println();
-			}
-			
-			System.out.println();
-			
-			for(int i = 0; i < table.length; i++) 
-			{
-				if(table[i][0] == 'X' && table[i][1] == 'X' && table[i][2] == 'X') 
+				
+				for(int i = 0; i < table.length; i++) //Double for (And what the teacher wanted)
 				{
-					theGame = false;
-					break;
-				}
-				else if(table[0][i] == 'X' && table[1][i] == 'X' && table[2][i] == 'X') 
-				{
-					theGame = false;
-					break;
-				}
-				else if(table[i][0] == 'O' && table[i][1] == 'O' && table[i][2] == 'O') 
-				{
-					theGame = false;
-					break;
-				}
-				else if(table[0][i] == 'O' && table[1][i] == 'O' && table[2][i] == 'O') 
-				{
-					theGame = false;
-					break;
-				}
-			}
-			
-			if(!theGame) 
-			{
-				break;
-			}
-			
-			System.out.println(secondPlayer + "'s turn");
-			
-			while(selecting) 
-			{
-				while(tryCatching) 
-				{
-					try 
+					for(int j = 0; j < table[i].length; j++) 
 					{
-						System.out.print("Choose a value from 0 to 2 for the file:");
-						file = s.nextInt();
-						s.nextLine();
-						
-						if(file <= 2 && file >= 0) 
+						System.out.print(table[i][j] + " ");
+					}
+					System.out.println();
+				}
+				
+				System.out.println();
+				
+				for(int i = 0; i < table.length; i++) 
+				{
+					if(table[i][0] == 'X' && table[i][1] == 'X' && table[i][2] == 'X') 
+					{
+						theGame = false;
+						player1win++;
+						theWinner = 1;
+						break;
+					}
+					else if(table[0][i] == 'X' && table[1][i] == 'X' && table[2][i] == 'X') 
+					{
+						theGame = false;
+						player1win++;
+						theWinner = 1;
+						break;
+					}
+					else if(table[i][0] == 'O' && table[i][1] == 'O' && table[i][2] == 'O') 
+					{
+						theGame = false;
+						player2win++;
+						theWinner = 2;
+						break;
+					}
+					else if(table[0][i] == 'O' && table[1][i] == 'O' && table[2][i] == 'O') 
+					{
+						theGame = false;
+						player2win++;
+						theWinner = 2;
+						break;
+					}
+				}
+				
+				if(!theGame) 
+				{
+					break;
+				}
+				
+				System.out.println(secondPlayer + "'s turn");
+				
+				while(selecting) 
+				{
+					while(tryCatching) 
+					{
+						try 
 						{
-							break;
-						}
-						else 
-						{
-							System.err.println("VALUE OVERLOAD");
 							System.out.print("Choose a value from 0 to 2 for the file:");
 							file = s.nextInt();
 							s.nextLine();
+							
+							if(file <= 2 && file >= 0) 
+							{
+								break;
+							}
+							else 
+							{
+								System.err.println("VALUE OVERLOAD");
+								System.out.print("Choose a value from 0 to 2 for the file:");
+								file = s.nextInt();
+								s.nextLine();
+							}
 						}
-					}
-					catch(InputMismatchException e) 
-					{
-						System.err.println(e.toString());
-						s.nextLine();
-					}
-				}
-				
-				while(tryCatching) 
-				{
-					try 
-					{
-						System.out.print("Choose a value from 0 to 2 for the column:");
-						column = s.nextInt();
-						s.nextLine();
-						
-						if(column <= 2 && column >= 0) 
+						catch(InputMismatchException e) 
 						{
-							break;
-						}
-						else 
-						{
-							System.err.println("VALUE OVERLOAD");
-							System.out.print("Choose a value from 0 to 2 for the file:");
-							column = s.nextInt();
+							System.err.println(e.toString());
 							s.nextLine();
 						}
 					}
-					catch(InputMismatchException e) 
+					
+					while(tryCatching) 
 					{
-						System.err.println(e.toString());
-						s.nextLine();
+						try 
+						{
+							System.out.print("Choose a value from 0 to 2 for the column:");
+							column = s.nextInt();
+							s.nextLine();
+							
+							if(column <= 2 && column >= 0) 
+							{
+								break;
+							}
+							else 
+							{
+								System.err.println("VALUE OVERLOAD");
+								System.out.print("Choose a value from 0 to 2 for the file:");
+								column = s.nextInt();
+								s.nextLine();
+							}
+						}
+						catch(InputMismatchException e) 
+						{
+							System.err.println(e.toString());
+							s.nextLine();
+						}
+					}
+					
+					if(table[file][column] == 'X' || table[file][column] == 'O') 
+					{
+						System.out.println("Sorry, please retry");
+					}
+					else 
+					{
+						table[file][column] = 'O';
+						break;
 					}
 				}
 				
-				if(table[file][column] == 'X' || table[file][column] == 'O') 
+				for(int i = 0; i < table.length; i++) 
 				{
-					System.out.println("Sorry, please retry");
+					if(table[i][0] == 'X' && table[i][1] == 'X' && table[i][2] == 'X') 
+					{
+						theGame = false;
+						player1win++;
+						theWinner = 1;
+						break;
+					}
+					else if(table[0][i] == 'X' && table[1][i] == 'X' && table[2][i] == 'X') 
+					{
+						theGame = false;
+						player1win++;
+						theWinner = 1;
+						break;
+					}
+					else if(table[i][0] == 'O' && table[i][1] == 'O' && table[i][2] == 'O') 
+					{
+						theGame = false;
+						player2win++;
+						theWinner = 2;
+						break;
+					}
+					else if(table[0][i] == 'O' && table[1][i] == 'O' && table[2][i] == 'O') 
+					{
+						theGame = false;
+						player2win++;
+						theWinner = 2;
+						break;
+					}
 				}
-				else 
+				
+				if(!theGame) 
 				{
-					table[file][column] = 'O';
 					break;
 				}
 			}
 			
-			for(int i = 0; i < table.length; i++) 
+			System.out.println();
+			if(theWinner == 1) 
 			{
-				if(table[i][0] == 'X' && table[i][1] == 'X' && table[i][2] == 'X') 
-				{
-					theGame = false;
-					break;
-				}
-				else if(table[0][i] == 'X' && table[1][i] == 'X' && table[2][i] == 'X') 
-				{
-					theGame = false;
-					break;
-				}
-				else if(table[i][0] == 'O' && table[i][1] == 'O' && table[i][2] == 'O') 
-				{
-					theGame = false;
-					break;
-				}
-				else if(table[0][i] == 'O' && table[1][i] == 'O' && table[2][i] == 'O') 
-				{
-					theGame = false;
-					break;
-				}
+				System.out.println("The winner is " + firstPlayer + "!");
+			}
+			else if(theWinner == 2) 
+			{
+				System.out.println("The winner is " + secondPlayer + "!");
 			}
 			
-			if(!theGame) 
+			System.out.println("Do you wanna play more tictactoe? Type 1 to continue and 2 to end.");
+			choosing = s.nextInt();
+			
+			while(choosing != 1 || choosing != 2) 
 			{
+				if(choosing == 1) 
+				{
+					break;
+				}
+				else if(choosing == 2) 
+				{
+					break;
+				}
+				
+				System.out.println("Do you wanna play more tictactoe? Type 1 to continue and 2 to end.");
+				choosing = s.nextInt();
+			}
+			if(choosing == 1) 
+			{
+				continue;
+			}
+			else if(choosing == 2) 
+			{
+				System.out.println("Goodnight folks!");
+				System.out.println("Player 1 won " + player1win + " times");
+				System.out.println("Player 2 won " + player2win + " times");
 				break;
 			}
-			
 		}
 	}
 }
