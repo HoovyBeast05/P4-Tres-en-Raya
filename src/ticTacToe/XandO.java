@@ -379,28 +379,6 @@ public class XandO {
 				{
 					break;
 				}
-				
-				draw = true;
-				for(int i = 0; i < table.length; i++) 
-				{
-					for(int j = 0; j < table[i].length; j++) 
-					{
-						if (table[i][j] == '·') 
-						{
-							draw = false;
-			            }
-					}
-					if (!draw) 
-					{
-						break;
-					}
-				}
-                if (draw) 
-                {
-                    System.out.println("It's a draw!");
-                    theGame = false;
-                    break;
-                }
 			}
 			
 			System.out.println();
