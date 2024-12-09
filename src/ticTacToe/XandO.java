@@ -253,22 +253,35 @@ public class XandO {
 					break;
 				}
 				
+				if(table[0][0] == 'X' && table[1][1] == 'X' && table[2][2] == 'X' || table[2][0] == 'X' && table[1][1] == 'X' && table[0][2] == 'X') 
+				{
+					theGame = false;
+					player1win++;
+					theWinner = 1;
+				}
+				else if(table[0][0] == 'O' && table[1][1] == 'O' && table[2][2] == 'O' || table[2][0] == 'O' && table[1][1] == 'O' && table[0][2] == 'O') 
+				{
+					theGame = false;
+					player2win++;
+					theWinner = 2;
+				}
+				
 				draw = true;
 				for(int i = 0; i < table.length; i++) 
 				{
 					for(int j = 0; j < table[i].length; j++) 
 					{
-						if (table[i][j] == '·') 
+						if(table[i][j] == '·') 
 						{
 							draw = false;
 			            }
 					}
-					if (!draw) 
+					if(!draw) 
 					{
 						break;
 					}
 				}
-                if (draw) 
+                if(draw) 
                 {
                     System.out.println("It's a draw!");
                     theGame = false;
@@ -378,6 +391,19 @@ public class XandO {
 				if(!theGame) 
 				{
 					break;
+				}
+				
+				if(table[0][0] == 'X' && table[1][1] == 'X' && table[2][2] == 'X' || table[2][0] == 'X' && table[1][1] == 'X' && table[0][2] == 'X') 
+				{
+					theGame = false;
+					player1win++;
+					theWinner = 1;
+				}
+				else if(table[0][0] == 'O' && table[1][1] == 'O' && table[2][2] == 'O' || table[2][0] == 'O' && table[1][1] == 'O' && table[0][2] == 'O') 
+				{
+					theGame = false;
+					player2win++;
+					theWinner = 2;
 				}
 			}
 			
