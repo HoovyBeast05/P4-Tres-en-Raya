@@ -208,6 +208,8 @@ public class XandO {
 				System.out.println();
 			}
 			
+			System.out.println();
+			
 			System.out.println(secondPlayer + "'s turn");
 			
 			while(selecting) 
