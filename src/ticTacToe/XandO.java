@@ -14,6 +14,7 @@ public class XandO {
 		
 		System.out.println("Please input your usernames.");
 		
+		//I create a string array that with a max value of 2, this is for the the player's usernames
 		String[] username = new String[2]; 
 		
 		for (int i = 0; i < 2; i++) 
@@ -22,18 +23,18 @@ public class XandO {
 			
 			username[i] = s.nextLine();
 			
-			if(username[i].length() >= 15) 
+			if(username[i].length() >= 15) //I put a limit on 15 characters
 			{
 				System.err.println("Sorry, your username is too long. Please input a username shorter than 15 characters.");
 				i--;
 			}
 		}
 		
-		int chosenToFlip = r.nextInt(username.length)+1;
+		int chosenToFlip = r.nextInt(username.length)+1;//I create two random integer generators that select from 1 to 2
 		int theChosen = r.nextInt(2)+1;
-		String firstPlayer = "", secondPlayer = "";
+		String firstPlayer = "", secondPlayer = "";//Here I initialise 2 strings, one string being player1, and the other being player2
 		
-		System.out.println(username[chosenToFlip - 1] + " will flip the coin.");
+		System.out.println(username[chosenToFlip - 1] + " will flip the coin.");//Here the player selected by the random integer generator will flip a coin
 		
 		boolean flipping = true;
 		
@@ -41,9 +42,9 @@ public class XandO {
 		{
 			System.out.println();
 			
-			int need = 0;
+			int need = 0;//This integer is for the result of the heads or tails
 			
-			try 
+			try //Here i implement a try catch to catch value that isn't integers
 			{
 				System.out.println("Select 1 for heads, 2 for tails.");
 				need = s.nextInt();
@@ -56,7 +57,7 @@ public class XandO {
 				s.nextLine();
 			}
 			
-			switch(need) 
+			switch(need) //This switch case is rather simple, it takes the value of the coin bet, and compares it to the randomly generated integer of the coin, being a true 50/50 between 1 and 2. 
 			{
 				case 1:
 					switch(theChosen) 
@@ -102,8 +103,8 @@ public class XandO {
 			}
 		}
 		
-		boolean continu = true;
-		int choosing = 0, player1win = 0, player2win = 0;
+		boolean continu = true; //This boolean will initiate the game
+		int choosing = 0, player1win = 0, player2win = 0; //Choosing is for if the player wants to continue or not, and player1Win and player2Win are win counters that increase after every player win.
 		
 		while(continu) 
 		{
@@ -125,7 +126,7 @@ public class XandO {
 			{
 				System.out.println();
 				
-				for(int i = 0; i < table.length; i++) //Double for (And what the teacher wanted)
+				for(int i = 0; i < table.length; i++)
 				{
 					for(int j = 0; j < table[i].length; j++) 
 					{
